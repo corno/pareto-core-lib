@@ -1,7 +1,3 @@
-
-export * from "./functions/createDictionary"
-export * from "./functions/createArray"
-
 export * from "./switchStatemenSupportingFunctions"
 
 export * from "./functions/logDebugMessage"
