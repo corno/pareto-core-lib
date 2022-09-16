@@ -5,9 +5,12 @@ import * as pi from "pareto-core-internals"
 export function asyncValue<T>(
     v: T
 ): pt.AsyncValue<T> {
-    return pi.wrapAsyncValueImp({
-        _execute: (cb) => {
-            cb(v)
+    return pi.wrapAsyncValueImp(
+        true,
+        {
+            _execute: (cb) => {
+                cb(v)
+            }
         }
-    })
+    )
 }
