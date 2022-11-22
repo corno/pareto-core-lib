@@ -7,10 +7,8 @@ export function asyncValue<T>(
 ): pt.AsyncValue<T> {
     return pi.wrapAsyncValueImp(
         true,
-        {
-            _execute: (cb) => {
-                cb(v)
-            }
+        (cb) => {
+            cb(v)
         }
     )
 }

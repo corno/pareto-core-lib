@@ -10,35 +10,31 @@ export function tuple2<T1, T2, Result>(
     return pi.wrapAsyncValueImp(
         cb1._isGuaranteedToReturnAResult &&
         cb2._isGuaranteedToReturnAResult,
-        {
-            _execute: (cb) => {
-                let elem1IsSet = false
-                let elem2IsSet = false
+        (cb) => {
+            let elem1IsSet = false
+            let elem2IsSet = false
 
-                let elem1: T1
-                let elem2: T2
+            let elem1: T1
+            let elem2: T2
 
-                function wrapup() {
-                    if (elem1IsSet && elem2IsSet) {
-                        cb(map({ first: elem1, second: elem2 }))
-                    }
+            function wrapup() {
+                if (elem1IsSet && elem2IsSet) {
+                    cb(map({ first: elem1, second: elem2 }))
                 }
-                cb1._execute((val) => {
-                    elem1 = val
-                    elem1IsSet = true
-                    wrapup()
-                })
-                cb2._execute((val) => {
-                    elem2 = val
-                    elem2IsSet = true
-                    wrapup()
-                })
-
             }
+            cb1._execute((val) => {
+                elem1 = val
+                elem1IsSet = true
+                wrapup()
+            })
+            cb2._execute((val) => {
+                elem2 = val
+                elem2IsSet = true
+                wrapup()
+            })
         }
     )
 }
-
 
 export function tuple3<T1, T2, T3, Result>(
     cb1: pt.AsyncValue<T1>,
@@ -50,38 +46,36 @@ export function tuple3<T1, T2, T3, Result>(
         cb1._isGuaranteedToReturnAResult &&
         cb2._isGuaranteedToReturnAResult &&
         cb3._isGuaranteedToReturnAResult,
-        {
-            _execute: (cb) => {
-                let elem1IsSet = false
-                let elem2IsSet = false
-                let elem3IsSet = false
+        (cb) => {
+            let elem1IsSet = false
+            let elem2IsSet = false
+            let elem3IsSet = false
 
-                let elem1: T1
-                let elem2: T2
-                let elem3: T3
+            let elem1: T1
+            let elem2: T2
+            let elem3: T3
 
-                function wrapup() {
-                    if (elem1IsSet && elem2IsSet && elem3IsSet) {
-                        cb(map({ first: elem1, second: elem2, third: elem3 }))
-                    }
+            function wrapup() {
+                if (elem1IsSet && elem2IsSet && elem3IsSet) {
+                    cb(map({ first: elem1, second: elem2, third: elem3 }))
                 }
-                cb1._execute((val) => {
-                    elem1 = val
-                    elem1IsSet = true
-                    wrapup()
-                })
-                cb2._execute((val) => {
-                    elem2 = val
-                    elem2IsSet = true
-                    wrapup()
-                })
-                cb3._execute((val) => {
-                    elem3 = val
-                    elem3IsSet = true
-                    wrapup()
-                })
-
             }
+            cb1._execute((val) => {
+                elem1 = val
+                elem1IsSet = true
+                wrapup()
+            })
+            cb2._execute((val) => {
+                elem2 = val
+                elem2IsSet = true
+                wrapup()
+            })
+            cb3._execute((val) => {
+                elem3 = val
+                elem3IsSet = true
+                wrapup()
+            })
+
         }
     )
 }
