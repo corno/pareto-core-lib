@@ -1,4 +1,5 @@
 {
   "dependencies": {
+    "lib-pareto-test": "^0.7.0"
   }
 }
