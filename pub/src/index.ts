@@ -9,3 +9,5 @@ export * from "./public/logDebugMessage"
 export * from "./public/panic"
 export * from "./public/switchStatemenSupportingFunctions"
 export * from "./public/tuple"
+export * from "./public/nested2Array"
+
