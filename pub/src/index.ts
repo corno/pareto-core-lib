@@ -1,5 +1,6 @@
 
 export * from "./public/asyncValue"
+export * from "./public/toAsync"
 export * from "./public/createEmptyArray"
 export * from "./public/createEmptyDictionary"
 export * from "./public/implementMe"
