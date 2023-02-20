@@ -8,8 +8,6 @@ export function tuple2<T1, T2, Result>(
     map: ($: AsyncTuple2Result<T1, T2>) => Result,
 ): pt.AsyncValue<Result> {
     return pi.wrapAsyncValueImp(
-        cb1._isGuaranteedToReturnAResult &&
-        cb2._isGuaranteedToReturnAResult,
         (cb) => {
             let elem1IsSet = false
             let elem2IsSet = false
@@ -22,12 +20,12 @@ export function tuple2<T1, T2, Result>(
                     cb(map({ first: elem1, second: elem2 }))
                 }
             }
-            cb1._execute((val) => {
+            cb1.__execute((val) => {
                 elem1 = val
                 elem1IsSet = true
                 wrapup()
             })
-            cb2._execute((val) => {
+            cb2.__execute((val) => {
                 elem2 = val
                 elem2IsSet = true
                 wrapup()
@@ -43,9 +41,6 @@ export function tuple3<T1, T2, T3, Result>(
     map: ($: AsyncTuple3Result<T1, T2, T3>) => Result,
 ): pt.AsyncValue<Result> {
     return pi.wrapAsyncValueImp(
-        cb1._isGuaranteedToReturnAResult &&
-        cb2._isGuaranteedToReturnAResult &&
-        cb3._isGuaranteedToReturnAResult,
         (cb) => {
             let elem1IsSet = false
             let elem2IsSet = false
@@ -60,17 +55,17 @@ export function tuple3<T1, T2, T3, Result>(
                     cb(map({ first: elem1, second: elem2, third: elem3 }))
                 }
             }
-            cb1._execute((val) => {
+            cb1.__execute((val) => {
                 elem1 = val
                 elem1IsSet = true
                 wrapup()
             })
-            cb2._execute((val) => {
+            cb2.__execute((val) => {
                 elem2 = val
                 elem2IsSet = true
                 wrapup()
             })
-            cb3._execute((val) => {
+            cb3.__execute((val) => {
                 elem3 = val
                 elem3IsSet = true
                 wrapup()

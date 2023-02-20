@@ -6,7 +6,6 @@ export function asyncValue<T>(
     v: T
 ): pt.AsyncValue<T> {
     return pi.wrapAsyncValueImp(
-        true,
         (cb) => {
             cb(v)
         }

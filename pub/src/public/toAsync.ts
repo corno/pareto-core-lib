@@ -6,7 +6,6 @@ export function toAsyncValue<T>(
     $c: ($i: ($: T) => void) => void
 ): pt.AsyncValue<T> {
     return pi.wrapAsyncValueImp(
-        true,
         (cb) => {
             let hasBeenCalled = false
             $c(($) => {
