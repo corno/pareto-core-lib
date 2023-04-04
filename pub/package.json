@@ -18,9 +18,9 @@
     "url": "git+https://github.com/corno/pareto-core-lib.git"
   },
   "types": "dist/index.d.ts",
-  "version": "0.21.5",
+  "version": "0.21.6",
   "dependencies": {
-    "pareto-core-internals": "^0.13.5"
+    "pareto-core-internals": "^0.13.6"
   },
   "content-fingerprint": "69f765a0f99918f2d922513704120c6390347aa0"
 }
