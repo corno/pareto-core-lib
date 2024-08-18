@@ -1,3 +1,7 @@
 
 export * from "./public/processAsyncValue"
-export { optional, cc, au, ss, panic } from "pareto-core-internals"
+
+/**
+ * these functions coming from core-internals should be exposed for library development
+ */
+export { set, notSet, cc, au, ss, panic } from "pareto-core-internals"
